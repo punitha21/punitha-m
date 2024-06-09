@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javascript DOM</title>
+  <!--Bootscrap CSS link-->
+  <link
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+   rel="stylesheet">
+   <style>
+   color-box{
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    border: 1px solid rgb(142, 28, 28);
+
+   } 
+   </style>
+
+</head>
+<body>
+  <div class="container text-center">
+    <h1 class="my-4">Random Color Generator </h1>
+    <div id="colorbox"
+    class="color-box"></div>
+    <button id="generatecolorbtn" class="btn btn-primary mt-3"> Generate Random Color</button>
+  </div>
+  <script>
+    document.getElementById('generatorColorBtn').addEventListener('click' function()
+    {
+      const Randomcolor = getRandomColor();
+      document.getElementById('colorbox') .style.backgroundColo=Randomcolor;
+    })
+    function getRandomColor(){
+      const letter='0123456789ABCDEF';
+      let Color='#';
+      for(let i = 0;i<6; i++){
+        Color+=
+        letters[Math.floor(Math.random()*16)];
+      }
+      return Color;
+    }
+  </script>  
+</body>
+</html>
