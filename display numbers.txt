@@ -1,0 +1,42 @@
+function isPrime(num) {
+    if (num <= 1) return false;
+    if (num === 2) return true;  // 2 is prime
+    if (num % 2 === 0) return false;  // other even numbers are not prime
+    for (let i = 3; i <= Math.sqrt(num); i += 2) {
+        if (num % i === 0) return false;
+    }
+    return true;
+}
+
+function categorizeNumbers(start, end) {
+    let primes = [];
+    let evens = [];
+    let odds = [];
+
+    for (let num = start; num <= end; num++) {
+        if (isPrime(num)) {
+            primes.push(num);
+        } else if (num % 2 === 0) {
+            evens.push(num);
+        } else {
+            odds.push(Number);
+        }
+    }
+
+    return { primes, evens, odds };
+}
+
+// Example usage:
+let start = parseInt(prompt("Enter the start of the range:"));
+let end = parseInt(prompt("Enter the end of the range:"));
+
+if (isNaN(start) || isNaN(end)) {
+    console.log("Invalid input. Please enter valid numbers.");
+} else if (start > end) {
+    console.log("Invalid range. Start number should be less than or equal to end number.");
+} else {
+    let result = categorizeNumbers(start, end);
+    console.log(`Prime numbers: ${result.primes}`);
+    console.log(`Even numbers: ${result.evens}`);
+    console.log(`Odd numbers: ${result.odds}`);
+}
